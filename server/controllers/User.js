@@ -27,7 +27,7 @@ export const UserRegister = async (req, res, next) => {
       img,
     });
     const createdUser = await user.save();
-    const token = jwt.sign({ id: createdUser._id }, process.env.JWT, {
+    const token = jwt.sign({ id: createdUser._id }, "mySuperSecretKey", {
       expiresIn: "9999 years",
     });
     return res.status(200).json({ token, user });
@@ -52,7 +52,7 @@ export const UserLogin = async (req, res, next) => {
       return next(createError(403, "Incorrect password"));
     }
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT, {
+    const token = jwt.sign({ id: user._id }, "mySuperSecretKey", {
       expiresIn: "9999 years",
     });
 
