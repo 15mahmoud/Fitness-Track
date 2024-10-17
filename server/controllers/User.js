@@ -404,21 +404,21 @@ const parseWorkoutLine = (parts) => {
 
 
 
-// Function to calculate calories burnt for a workout
-const calculateCaloriesBurnt = (workoutDetails) => {
-  const durationInMinutes = parseInt(workoutDetails.duration);
-  const weightInKg = parseInt(workoutDetails.weight);
-  const caloriesBurntPerMinute = 5; // Sample value, actual calculation may vary
-  return durationInMinutes * caloriesBurntPerMinute * weightInKg;
-};
-
+// // Function to calculate calories burnt for a workout
 // const calculateCaloriesBurnt = (workoutDetails) => {
 //   const durationInMinutes = parseInt(workoutDetails.duration);
 //   const weightInKg = parseInt(workoutDetails.weight);
-//   const MET = workoutDetails.met || 5; // MET value based on exercise type
-//   const durationInHours = durationInMinutes / 60;
-//   return MET * weightInKg * durationInHours;
+//   const caloriesBurntPerMinute = 5; // Sample value, actual calculation may vary
+//   return durationInMinutes * caloriesBurntPerMinute * weightInKg;
 // };
+
+const calculateCaloriesBurnt = (workoutDetails) => {
+  const durationInMinutes = parseInt(workoutDetails.duration);
+  const weightInKg = parseInt(workoutDetails.weight);
+  const MET = workoutDetails.met || 5; // MET value based on exercise type
+  const durationInHours = durationInMinutes / 60;
+  return MET * weightInKg * durationInHours;
+};
 
 
 
